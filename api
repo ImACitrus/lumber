@@ -1,0 +1,38 @@
+local module = {}
+
+function module.GetPlayerFromCharacter(Model)
+    local Player = game:GetService("Players"):FindFirstchild(Model.name)
+    if Player then
+        return Player
+    end
+end
+function module.GetCarFromClient(otherPlayer: Player | nil)
+    local car
+    if not otherPlayer then
+        return car
+    else
+        return car
+    end
+end
+function module.isWhat(obj): string
+    if not typeof(obj)==("Vector3" or "CFrame") then
+        return obj.ClassName
+    else
+        return typeof(obj)
+    end
+end
+function module.Teleport(who: Player | Model, position: Vector3 | CFrame)
+    local function a(bool)
+        local IsVector = isWhat(position)=="Vector3" or false
+        if IsVector then
+            if bool then who:PivotTo(CFrame.new(position)) else who.CFrame = CFrame.new(position) end
+        end
+    end
+    if isWhat(who) == "Player" then
+        a(true)
+        elseif  isWhat(who) == "Model" then
+            a(true)
+    end
+end
+
+return module
