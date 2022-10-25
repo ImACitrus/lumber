@@ -1,0 +1,10 @@
+--[[
+
+-- settings
+_G.active = true
+waitTime = 1
+
+runLoop = ( getfenv() ).newThreadInLoop
+runLoop()
+
+]]
